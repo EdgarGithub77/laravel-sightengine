@@ -1,5 +1,7 @@
 <?php
 
+use App\Facades\ApiServiceFacade;
+
 return [
 
     /*
@@ -55,6 +57,12 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
+
+    'sightengine_api_url' => env('SIGHTENGINE_API_URL', 'https://api.sightengine.com/1.0/check.json'),
+
+    'sightengine_user' => env('SIGHTENGINE_USER', null),
+
+    'sightengine_secret' => env('SIGHTENGINE_SECRET', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +169,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -174,7 +183,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\SightengineServiceProvider::class,
     ],
 
     /*
@@ -229,7 +238,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'ApiServiceFacade' => App\Facades\ApiServiceFacade::class,
     ],
 
 ];

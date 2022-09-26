@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Sightengine;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::post('store','App\Http\Controllers\SightengineController@store')->name('file.upload.post');
 
-
+Route::get('store',function () {
+    return redirect()->to('/');
+});

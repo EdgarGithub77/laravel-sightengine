@@ -402,7 +402,13 @@
 <body class="antialiased">
 <div class="container">
     <div class="panel panel-primary">
+
         <div class="panel-heading"><h2>laravel With Sightengine</h2></div>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+              <h2 style="color: green">{{ session()->get('message') }}</h2>
+            </div>
+        @endif
         <div class="panel-body ml-2">
             @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-block">

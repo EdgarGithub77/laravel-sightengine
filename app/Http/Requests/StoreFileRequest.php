@@ -23,9 +23,11 @@ class StoreFileRequest extends FormRequest
      */
     public function rules()
     {
+        $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
+
         return [
-            'file' => "required_without:link|mimes:mp4,mov,png,jpg,jpeg|max:20000",
-            "link" => "required_without:file|string",
+            'file' => "required_without:link|mimes:mp4,png,jpg,jpeg|max:20000",
+            "link" => "required_without:file|regex:".$regex,
         ];
     }
 }
