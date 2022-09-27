@@ -37,7 +37,7 @@ class SightengineService
     }
 
     /**
-     * @param $link
+     * @param $request
      */
     public static function SightengineApiCallVideo($request)
     {
@@ -73,7 +73,6 @@ class SightengineService
         $response = curl_exec($ch);
         curl_close($ch);
         $output = json_decode($response, true);
-
         $saveFileData = Sightengine::create(['sightengine_data' => $output]);
         event(new SightengineEvent($saveFileData));
     }

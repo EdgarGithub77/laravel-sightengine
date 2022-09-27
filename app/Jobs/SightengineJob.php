@@ -32,6 +32,6 @@ class SightengineJob implements ShouldQueue
      */
     public function handle()
     {
-        SightengineService::SightengineApiCallImage($this->requestData);
+        SightengineService::SightengineApiCall($this->requestData);
     }
 }
